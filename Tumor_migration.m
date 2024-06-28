@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % author: Vicky Fan
 % The following code is for tumor cell migration.
-% All the values shown below are arbitury examples. Please feel free to change them by needs.
+% All the values shown below are arbitrary examples. Please feel free to change them according to needs.
 % Texas A&M University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if num_tumor_cell_real >0
@@ -79,7 +79,7 @@ if num_tumor_cell_real >0
                     if num_tumor_within_movingradius == 0
                         condition1 = true; 
                     else
-                        newmovetumor2existingcell_dis{check_step} = sqrt((intermediate_x_tumor - tumor_x_within_moveradius).^2 + (intermediate_y_tumor - tumor_y_within_moveradius).^2); %error
+                        newmovetumor2existingcell_dis{check_step} = sqrt((intermediate_x_tumor - tumor_x_within_moveradius).^2 + (intermediate_y_tumor - tumor_y_within_moveradius).^2); 
                         newmovetumor2existingcell_dis_matrix = cell2mat(newmovetumor2existingcell_dis);
                         condition1 = all(newmovetumor2existingcell_dis_matrix > 2*r_tumor);
                     end
