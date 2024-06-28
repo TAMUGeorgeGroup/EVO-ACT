@@ -1,7 +1,0 @@
-Read ME 
-Our EVO-ACT (EVOlutional Agent-based Cancer Tumor interaction model) model is based on the Gillespie algorithm. Please refer the below steps to run the model. 
-
-STEP I: (Only when we apply this model to TACS context)
-If you apply this model in a specific context, such as in different TACS geometries, you have to generate TACS fiber networks first. Run the 'TACS_generation' script first to generate a randomly packed ECM geometry. The code shows an example of TACS1. Please modify the code to your needs to generate different geometries, such as TACS2, TACS3. 
-STEP II:
-In our model, we simulate tumor invasion, division, migration, and T cell migration. Codes are available for each section. Please run the associated code sequentially by your needs. 
