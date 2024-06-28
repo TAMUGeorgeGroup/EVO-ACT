@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % author: Vicky Fan
 % The following code is for EMT.
-% All the values shown below are arbitury examples. Please feel free to change them by needs.  
+% All the values shown below are arbitrary examples. Please feel free to change them according to needs.  
 % Texas A&M University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if num_tumor_cell_real == EMT_threshould
     new_EMT_cell_ID_set = dividable_tumor_idx;
     EMT_id_history = [EMT_id_history,new_EMT_cell_ID_set];
-    D = 100;
+    D = 20;
     EMT_occurrance_time = n;
 elseif num_tumor_cell_real > EMT_threshould
     new_EMT_cell_ID_set = setdiff(dividable_tumor_idx,EMT_id_history);
@@ -28,15 +28,15 @@ if num_tumor_cell_real >= EMT_threshould
                 dividable_cell_clone_id_set(j) = dividable_cell_clone_id_set_prep;
                 dividable_cell_antigen_set = clonegroup_antigen{dividable_cell_clone_id_set(j)};
                 if length(dividable_cell_antigen_set) >1
-                    if length(dividable_cell_antigen_set) <=15
+                    if length(dividable_cell_antigen_set) <=5
                         num_antigen_lost_perdividablecell = poissrnd(length(dividable_cell_antigen_set));
                         while num_antigen_lost_perdividablecell >= length(dividable_cell_antigen_set)
                             num_antigen_lost_perdividablecell = poissrnd(length(dividable_cell_antigen_set));
                         end
                     else
-                        num_antigen_lost_perdividablecell = poissrnd(15);
+                        num_antigen_lost_perdividablecell = poissrnd(5);
                         while num_antigen_lost_perdividablecell >= length(dividable_cell_antigen_set) || num_antigen_lost_perdividablecell ==0
-                            num_antigen_lost_perdividablecell = poissrnd(15);
+                            num_antigen_lost_perdividablecell = poissrnd(5);
                         end
                     end
                     antigen_to_lost_idx_dividable = randperm(numel(dividable_cell_antigen_set),num_antigen_lost_perdividablecell);
