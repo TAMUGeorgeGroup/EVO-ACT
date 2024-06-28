@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % author: Vicky Fan
 % The following code is for tumor mutation.
-% All the values shown below are arbitury examples. Please feel free to change them by needs.  
+% All the values shown below are arbitury examples. Please feel free to change them according to needs.  
 % Texas A&M University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -32,14 +32,14 @@ if rand <= mutation_rate
         daughter_cell_antigen = [parent_cell_antigen, antigen_to_add]; 
         
         if rand <0.5
-            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - tumor_div_rate_percell(index_div_cell)*number_antigen_to_add/100;
+            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - number_antigen_to_add/100;
             denom = 101;
             while new_cell_div_rate<=0
-                new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - tumor_div_rate_percell(index_div_cell)*number_antigen_to_add/denom;
+                new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - number_antigen_to_add/denom;
                 denom = denom +1;
             end
         else
-            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) + tumor_div_rate_percell(index_div_cell)*number_antigen_to_add/1.2;
+            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) + number_antigen_to_add/1.5;
         end
     elseif coin >= 0.5 || length(parent_cell_antigen) == length(antigen_set)
         number_antigen_to_lost = 0;
@@ -50,14 +50,14 @@ if rand <= mutation_rate
         daughter_cell_antigen = parent_cell_antigen;
         daughter_cell_antigen(antigen_to_lost_idx) =[];
         if rand <0.5
-            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - tumor_div_rate_percell(index_div_cell)*number_antigen_to_lost/100;
+            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - number_antigen_to_lost/100;
             denom = 101;
             while new_cell_div_rate<=0
-                new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - tumor_div_rate_percell(index_div_cell)*number_antigen_to_lost/denom;
+                new_cell_div_rate = tumor_div_rate_percell(index_div_cell) - number_antigen_to_lost/denom;
                 denom = denom +1;
             end
         else
-            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) + tumor_div_rate_percell(index_div_cell)*number_antigen_to_lost/1.2;
+            new_cell_div_rate = tumor_div_rate_percell(index_div_cell) + number_antigen_to_lost/1.5;
         end
     end
     clonegroup_antigen = [clonegroup_antigen, {daughter_cell_antigen}];
